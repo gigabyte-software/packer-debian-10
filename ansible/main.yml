@@ -6,6 +6,7 @@
   roles:
     - geerlingguy.nfs
     - geerlingguy.packer-debian
+    - geerlingguy.docker
 
   tasks:
     - name: Install some helpful utilities.
@@ -14,5 +15,16 @@
           - git
           - wget
           - curl
-          - vim
+          - emacs
+          - cowsay
         state: installed
+    - name: adding vagrant to group docker
+      user:
+        name: vagrant
+        groups: docker
+        append: yes
+    - name: Install python docker
+      pip:
+        name:
+          - docker
+          - docker-compose
