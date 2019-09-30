@@ -17,6 +17,7 @@
           - curl
           - emacs
           - cowsay
+          - rsync
         state: installed
     - name: adding vagrant to group docker
       user:
@@ -28,3 +29,4 @@
         name:
           - docker
           - docker-compose
+          - passlib
