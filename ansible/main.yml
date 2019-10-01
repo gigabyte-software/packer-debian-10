@@ -15,7 +15,7 @@
           - git
           - wget
           - curl
-          - emacs
+          - emacs-nox
           - cowsay
           - rsync
         state: installed
