@@ -1,6 +1,17 @@
 
 
-Do Not Merge this branch - (Not intended for upstream) !
+Do Not Merge this branch to master - (Not intended for upstream) !
+===
+
+
+See below regarding required access token, so final build command 
+will look like:
+
+    $ VAGRANT_CLOUD_TOKEN=<token> packer build -var 'version=0.1.0' debian10.json
+
+
+
+-Begin original README file-
 ===
 
 # Packer Example - Debian 10 minimal Vagrant Box

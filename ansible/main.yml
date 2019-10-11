@@ -18,6 +18,7 @@
           - emacs-nox
           - cowsay
           - rsync
+          - libxml-twig-perl
         state: installed
     - name: adding vagrant to group docker
       user:

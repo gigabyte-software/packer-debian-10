@@ -85,6 +85,11 @@
       {
         "output": "builds/{{.Provider}}-debian10.box",
         "type": "vagrant"
+      },
+      {
+        "type": "vagrant-cloud",
+        "box_tag": "gigabyte-software/dev-environment",
+        "version": "{{user `version`}}"
       }
     ]
   ]
