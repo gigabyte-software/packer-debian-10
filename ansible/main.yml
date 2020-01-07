@@ -19,7 +19,7 @@
           - cowsay
           - rsync
           - libxml-twig-perl
-        state: installed
+        state: present
     - name: adding vagrant to group docker
       user:
         name: vagrant
