@@ -5,6 +5,28 @@
   "provisioners": [
     {
       "type": "shell",
+      "inline": [
+        "mkdir -p /home/vagrant/docker"
+      ]
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "chown -R vagrant:vagrant /home/vagrant"
+      ]
+    },
+    {
+      "type": "file",
+      "source": "{{ template_dir  }}/provision/docker-compose.yml",
+      "destination": "/home/vagrant/docker/"
+    },
+    {
+      "type": "file",
+      "source": "{{ template_dir  }}/provision/docker-compose.service",
+      "destination": "/home/vagrant/docker/"
+    },
+    {
+      "type": "shell",
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
       "script": "scripts/ansible.sh"
     },
@@ -85,11 +107,6 @@
       {
         "output": "builds/{{.Provider}}-debian10.box",
         "type": "vagrant"
-      },
-      {
-        "type": "vagrant-cloud",
-        "box_tag": "gigabyte-software/dev-environment",
-        "version": "{{user `version`}}"
       }
     ]
   ]

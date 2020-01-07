@@ -1,0 +1,26 @@
+
+
+version : '2'
+services:
+  vault:
+    container_name: vault
+    image: vault:latest
+    hostname: vault
+    environment:
+      - VAULT_DEV_ROOT_TOKEN_ID=root
+      - SKIP_SETCAP=1
+    ports:
+      - 8200:8200
+
+  consul:
+    container_name: consul
+    image: consul
+    ports:
+      - 8500:8500
+
+  registrator:
+    container_name: registrator
+    image: gliderlabs/registrator:latest
+    command: consul://172.17.0.1:8500
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock
